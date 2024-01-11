@@ -1,9 +1,8 @@
-import KnowledgeBase from 'dewy-ts'
+import { KnowledgeBase } from '@/app/utils/KnowledgeBase';
 import { NextRequest, NextResponse } from 'next/server';
 
-const kb = new KnowledgeBase({
-  apiKey: process.env.KB_API_KEY,
-})
+
+const kb = new KnowledgeBase(process.env.KB_API_KEY)
 
 // IMPORTANT! Set the runtime to edge
 export const runtime = 'edge'

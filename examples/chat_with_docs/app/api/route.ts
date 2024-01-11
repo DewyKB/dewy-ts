@@ -1,15 +1,13 @@
 import OpenAI from 'openai';
 import { Message, OpenAIStream, StreamingTextResponse } from 'ai'
-import KnowledgeBase from 'dewy-ts'
+import { KnowledgeBase } from '@/app/utils/KnowledgeBase';
 import moment from 'moment';
 
 // Create an OpenAI API client (that's edge friendly!)
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const kb = new KnowledgeBase({
-  apiKey: process.env.KB_API_KEY,
-})
+const kb = new KnowledgeBase(process.env.KB_API_KEY)
 
 
 // IMPORTANT! Set the runtime to edge
@@ -24,7 +22,7 @@ export async function POST(req: Request) {
     const lastMessage = messages[messages.length - 1]
 
     // Query related information from the knowledge base
-    const docs = await kb.collection("docs").retrieve({
+    const context = await kb.collection("docs").retrieve({
       query: lastMessage.content, 
       where: {owner: user_id, $created_at: {$gt: moment().subtract(1, 'days')}},
       limit: 10,
