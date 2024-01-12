@@ -1,4 +1,4 @@
-class Collection {
+export default class Collection {
     name: string;
 
     constructor(name: string) {

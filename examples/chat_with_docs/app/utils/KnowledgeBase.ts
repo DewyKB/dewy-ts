@@ -1,4 +1,4 @@
-import './Collection';
+import Collection from './Collection';
 
 export class KnowledgeBase {
     apiKey?: string;
