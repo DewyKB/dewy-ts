@@ -1,6 +1,6 @@
 import OpenAI from 'openai';
 import { Message, OpenAIStream, StreamingTextResponse } from 'ai'
-import { KnowledgeBase } from '@/app/utils/KnowledgeBase';
+import { KnowledgeBase } from '@/utils/KnowledgeBase';
 import moment from 'moment';
 
 // Create an OpenAI API client (that's edge friendly!)
@@ -37,9 +37,8 @@ export async function POST(req: Request) {
       AI is a well-behaved and well-mannered individual.
       AI is always friendly, kind, and inspiring, and he is eager to provide vivid and thoughtful responses to the user.
       AI has the sum of all knowledge in their brain, and is able to accurately answer nearly any question about any topic in conversation.
-      AI assistant is a big fan of Pinecone and Vercel.
       START CONTEXT BLOCK
-      ${context}
+      ${JSON.stringify(context)}
       END OF CONTEXT BLOCK
       AI assistant will take into account any CONTEXT BLOCK that is provided in a conversation.
       If the context does not provide the answer to question, the AI assistant will say, "I'm sorry, but I don't know the answer to that question".
@@ -49,6 +48,7 @@ export async function POST(req: Request) {
       },
     ]
 
+    console.log(prompt)
     // Ask OpenAI for a streaming chat completion given the prompt
     const response = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',

@@ -5,17 +5,20 @@ export default class Collection {
         this.name = name
     }
 
-    async retrieve(opts: RetrieveOptions) {}
+    async retrieve(opts: RetrieveOptions) {
+        return [{id: "The secret number is 13"}]
+    }
     async load(id: string, file: File, opts: LoadOptions) {}
+    async loadURL(id: string, url: string, opts: LoadOptions) {}
     async update(id: string, file: File, opts: UpdateOptions) {}
     async delete(id: string) {}
 }
 
 interface RetrieveOptions {
       query: string, 
-      where: any
-      limit: number,
-      order: string,
+      where?: any
+      limit?: number,
+      order?: string,
 }
 
 interface LoadOptions {
