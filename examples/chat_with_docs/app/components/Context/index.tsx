@@ -8,9 +8,10 @@ import { Button } from "./Button";
 interface ContextProps {
   className: string;
   selected: string[] | null;
+  chunks: string[] | null;
 }
 
-export const Context: React.FC<ContextProps> = ({ className, selected }) => {
+export const Context: React.FC<ContextProps> = ({ className, selected, chunks }) => {
   const [entries, setEntries] = useState(urls);
   const [cards, setCards] = useState<ICard[]>([]);
 
@@ -77,6 +78,7 @@ export const Context: React.FC<ContextProps> = ({ className, selected }) => {
             <Card key={key} card={card} selected={selected} />
           ))}
       </div>
+    <div>{chunks}</div>
     </div>
   );
 };

@@ -4,12 +4,13 @@
   "description": "Typescript client for Dewy",
   "private": false,
   "scripts": {
-    "generate-client": "openapi --name Dewy -c axios --input http://localhost:8000/openapi.json --output ./src/client --useUnionTypes",
+    "generate-client": "rm -rf src/client && openapi --name Dewy -c fetch --input http://localhost:8000/openapi.json --output ./src/client --useUnionTypes",
     "build": "tsc",
     "wtf": "openapi --help"
   },
   "dependencies": {
-    "axios": "^1.6"
+    "node-fetch": "^3",
+    "form-data": "^4"
   },
   "devDependencies": {
     "openapi-typescript-codegen": "^0.26",

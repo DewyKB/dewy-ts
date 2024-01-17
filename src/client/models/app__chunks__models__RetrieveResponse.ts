@@ -2,12 +2,12 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { NodeWithScore } from './NodeWithScore';
+import type { Chunk } from './Chunk';
 /**
- * The response from a retrieval request.
+ * The response from a chunk retrieval request.
  */
-export type RetrieveResponse = {
+export type app__chunks__models__RetrieveResponse = {
     synthesized_text: (string | null);
-    retrieved_nodes: Array<NodeWithScore>;
+    chunks: Array<Chunk>;
 };
 

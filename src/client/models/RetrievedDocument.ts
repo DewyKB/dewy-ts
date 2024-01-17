@@ -2,9 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { TextNode } from './TextNode';
-export type NodeWithScore = {
-    node: TextNode;
-    score?: (number | null);
+import type { Chunk } from './Chunk';
+export type RetrievedDocument = {
+    chunks: Array<Chunk>;
 };
 

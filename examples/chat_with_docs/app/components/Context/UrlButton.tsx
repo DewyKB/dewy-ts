@@ -42,17 +42,6 @@ const UrlButton: FC<IURLButtonProps> = ({ entry, onClick }) => (
           className="hover:text-green"
         />
       </a>
-      {entry.loading && (
-        <div
-          className="absolute inset-0"
-          style={{
-            zIndex: -1,
-            background:
-              "linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent)",
-            animation: "shimmer 2s infinite",
-          }}
-        ></div>
-      )}
       <div className="relative">{entry.title}</div>
     </Button>
   </div>

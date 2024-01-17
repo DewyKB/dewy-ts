@@ -17,14 +17,7 @@ export async function crawlDocument(
   const response = await fetch("/api/crawl", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      url,
-      options: {
-        splittingMethod,
-        chunkSize,
-        overlap,
-      },
-    }),
+    body: JSON.stringify({url}),
   });
 
   const { documents } = await response.json();

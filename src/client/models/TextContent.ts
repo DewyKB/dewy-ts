@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type TextNode = {
+export type TextContent = {
     /**
      * Text content of the node.
      */

@@ -1,7 +1,6 @@
 import OpenAI from 'openai';
 import { Message, OpenAIStream, StreamingTextResponse } from 'ai'
 import { Dewy } from 'dewy_ts';
-// import { Dewy } from "../../../../../src/client";
 import moment from 'moment';
 
 // Create an OpenAI API client (that's edge friendly!)
@@ -23,8 +22,7 @@ export async function POST(req: Request) {
     const lastMessage = messages[messages.length - 1]
 
     // Query related information from the knowledge base
-    const context = await kb.collection.retrieve(
-      "collection-id",
+    const context = await kb.chunks.retrieve(
       {query: "query", n: 10},
       // query: lastMessage.content, 
       // where: {owner: user_id, $created_at: {$gt: moment().subtract(1, 'days')}},
@@ -41,7 +39,7 @@ export async function POST(req: Request) {
       AI is always friendly, kind, and inspiring, and he is eager to provide vivid and thoughtful responses to the user.
       AI has the sum of all knowledge in their brain, and is able to accurately answer nearly any question about any topic in conversation.
       START CONTEXT BLOCK
-      ${JSON.stringify(context)}
+      ${context.chunks.map((c: any) => c.content.text).join("\n")}
       END OF CONTEXT BLOCK
       AI assistant will take into account any CONTEXT BLOCK that is provided in a conversation.
       If the context does not provide the answer to question, the AI assistant will say, "I'm sorry, but I don't know the answer to that question".

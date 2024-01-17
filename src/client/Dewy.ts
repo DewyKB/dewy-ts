@@ -4,17 +4,17 @@
 /* eslint-disable */
 import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
-import { AxiosHttpRequest } from './core/AxiosHttpRequest';
-import { CollectionService } from './services/CollectionService';
-import { UnstructuredService } from './services/UnstructuredService';
+import { FetchHttpRequest } from './core/FetchHttpRequest';
+import { ChunksService } from './services/ChunksService';
+import { DocumentsService } from './services/DocumentsService';
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export class Dewy {
-    public readonly collection: CollectionService;
-    public readonly unstructured: UnstructuredService;
+    public readonly chunks: ChunksService;
+    public readonly documents: DocumentsService;
     public readonly request: BaseHttpRequest;
-    constructor(config?: Partial<OpenAPIConfig>, HttpRequest: HttpRequestConstructor = AxiosHttpRequest) {
+    constructor(config?: Partial<OpenAPIConfig>, HttpRequest: HttpRequestConstructor = FetchHttpRequest) {
         this.request = new HttpRequest({
-            BASE: config?.BASE ?? '',
+            BASE: config?.BASE ?? 'http://127.0.0.1:8000',
             VERSION: config?.VERSION ?? '0.1.0',
             WITH_CREDENTIALS: config?.WITH_CREDENTIALS ?? false,
             CREDENTIALS: config?.CREDENTIALS ?? 'include',
@@ -24,8 +24,8 @@ export class Dewy {
             HEADERS: config?.HEADERS,
             ENCODE_PATH: config?.ENCODE_PATH,
         });
-        this.collection = new CollectionService(this.request);
-        this.unstructured = new UnstructuredService(this.request);
+        this.chunks = new ChunksService(this.request);
+        this.documents = new DocumentsService(this.request);
     }
 }
 
