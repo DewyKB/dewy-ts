@@ -72,7 +72,7 @@ export const Context: React.FC<ContextProps> = ({ className, context }) => {
             <Card key={key} card={card} />
           ))}
       </div>
-    { context ? <div><ReactJson src={context} theme="solarized"/></div> : null }
+    { context ? <div><ReactJson src={context} theme="solarized" displayDataTypes={false} collapsed={3} enableClipboard={false}/></div> : null }
     </div>
   );
 };

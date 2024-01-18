@@ -13,7 +13,7 @@ export async function POST(req: Request) {
 
     // Query related information from the knowledge base
     const context = await kb.chunks.retrieve(
-      {query: "query", n: 10},
+      {query: lastMessage.content, n: 10},
       // query: lastMessage.content, 
       // where: {owner: user_id, $created_at: {$gt: moment().subtract(1, 'days')}},
       // limit: 10,
