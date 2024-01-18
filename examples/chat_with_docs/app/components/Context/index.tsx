@@ -3,27 +3,21 @@ import { urls } from "./urls";
 import UrlButton from "./UrlButton";
 import { Card, ICard } from "./Card";
 import { clearIndex, crawlDocument } from "./utils";
+import ReactJson from '@microlink/react-json-view'
 
 import { Button } from "./Button";
 interface ContextProps {
   className: string;
-  selected: string[] | null;
-  chunks: string[] | null;
+  context: any;
 }
 
-export const Context: React.FC<ContextProps> = ({ className, selected, chunks }) => {
+export const Context: React.FC<ContextProps> = ({ className, context }) => {
   const [entries, setEntries] = useState(urls);
   const [cards, setCards] = useState<ICard[]>([]);
 
   const [splittingMethod, setSplittingMethod] = useState("markdown");
   const [chunkSize, setChunkSize] = useState(256);
   const [overlap, setOverlap] = useState(1);
-
-  // Scroll to selected card
-  useEffect(() => {
-    const element = selected && document.getElementById(selected[0]);
-    element?.scrollIntoView({ behavior: "smooth" });
-  }, [selected]);
 
   const DropdownLabel: React.FC<
     React.PropsWithChildren<{ htmlFor: string }>
@@ -75,10 +69,10 @@ export const Context: React.FC<ContextProps> = ({ className, selected, chunks })
       <div className="flex flex-wrap w-full">
         {cards &&
           cards.map((card, key) => (
-            <Card key={key} card={card} selected={selected} />
+            <Card key={key} card={card} />
           ))}
       </div>
-    <div>{chunks}</div>
+    { context ? <div><ReactJson src={context} theme="solarized"/></div> : null }
     </div>
   );
 };

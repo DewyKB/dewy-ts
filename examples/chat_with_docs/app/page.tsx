@@ -12,7 +12,7 @@ import { AiFillGithub, AiOutlineInfoCircle } from "react-icons/ai";
 
 const Page: React.FC = () => {
   const [gotMessages, setGotMessages] = useState(false);
-  const [context, setContext] = useState<string[] | null>(null);
+  const [context, setContext] = useState(null);
   const [isModalOpen, setModalOpen] = useState(false);
 
   const { messages, input, handleInputChange, handleSubmit } = useChat({
@@ -39,7 +39,8 @@ const Page: React.FC = () => {
         }),
       });
       const { context } = await response.json();
-      setContext(context.map((c: any) => c.id));
+      setContext(context);
+      // setContext(`got context response: ${JSON.stringify(context)}`)
     };
     if (gotMessages && messages.length >= prevMessagesLengthRef.current) {
       getContext();
@@ -82,7 +83,7 @@ const Page: React.FC = () => {
           messages={messages}
         />
         <div className="absolute transform translate-x-full transition-transform duration-500 ease-in-out right-0 w-2/3 h-full bg-gray-700 overflow-y-auto lg:static lg:translate-x-0 lg:w-2/5 lg:mx-2 rounded-lg">
-          <Context className="" selected={context} />
+          <Context className="" context={context} />
         </div>
         <button
           type="button"
