@@ -10,16 +10,14 @@ export { CancelablePromise, CancelError } from './core/CancelablePromise';
 export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 
-export type { app__chunks__models__RetrieveResponse } from './models/app__chunks__models__RetrieveResponse';
-export type { app__documents__models__RetrieveResponse } from './models/app__documents__models__RetrieveResponse';
-export type { Chunk } from './models/Chunk';
+export type { Collection } from './models/Collection';
 export type { HTTPValidationError } from './models/HTTPValidationError';
-export type { ImageContent } from './models/ImageContent';
-export type { RetrievedDocument } from './models/RetrievedDocument';
+export type { ImageStatement } from './models/ImageStatement';
 export type { RetrieveRequest } from './models/RetrieveRequest';
-export type { SynthesisMode } from './models/SynthesisMode';
-export type { TextContent } from './models/TextContent';
+export type { RetrieveResponse } from './models/RetrieveResponse';
+export type { TextStatement } from './models/TextStatement';
 export type { ValidationError } from './models/ValidationError';
 
-export { ChunksService } from './services/ChunksService';
+export { CollectionsService } from './services/CollectionsService';
 export { DocumentsService } from './services/DocumentsService';
+export { StatementsService } from './services/StatementsService';

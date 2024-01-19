@@ -7,11 +7,7 @@ class DocumentsService {
     }
     /**
      * Add
-     * Add a document to the unstructured collection.
-     *
-     * Parameters:
-     * - collection: The ID of the collection to add to.
-     * - document: The URL of the document to add.
+     * Add a document.
      * @param requestBody
      * @returns any Successful Response
      * @throws ApiError
@@ -20,24 +16,6 @@ class DocumentsService {
         return this.httpRequest.request({
             method: 'PUT',
             url: '/api/documents/',
-            body: requestBody,
-            mediaType: 'application/json',
-            errors: {
-                422: `Validation Error`,
-            },
-        });
-    }
-    /**
-     * Retrieve
-     * Retrieve documents based on a given query.
-     * @param requestBody
-     * @returns app__documents__models__RetrieveResponse Successful Response
-     * @throws ApiError
-     */
-    retrieve(requestBody) {
-        return this.httpRequest.request({
-            method: 'POST',
-            url: '/api/documents/retrieve',
             body: requestBody,
             mediaType: 'application/json',
             errors: {

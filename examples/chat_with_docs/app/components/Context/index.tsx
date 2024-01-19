@@ -3,9 +3,13 @@ import { urls } from "./urls";
 import UrlButton from "./UrlButton";
 import { Card, ICard } from "./Card";
 import { clearIndex, crawlDocument } from "./utils";
-import ReactJson from '@microlink/react-json-view'
+import { lazy } from "react"
+
 
 import { Button } from "./Button";
+
+const LazyReactJson = lazy(() => import('@microlink/react-json-view'));
+
 interface ContextProps {
   className: string;
   context: any;
@@ -72,7 +76,7 @@ export const Context: React.FC<ContextProps> = ({ className, context }) => {
             <Card key={key} card={card} />
           ))}
       </div>
-    { context ? <div><ReactJson src={context} theme="solarized" displayDataTypes={false} collapsed={3} enableClipboard={false}/></div> : null }
+    { context ? <div><LazyReactJson src={context} theme="solarized" displayDataTypes={false} collapsed={3} enableClipboard={false}/></div> : null }
     </div>
   );
 };

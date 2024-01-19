@@ -2,7 +2,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type ImageContent = {
+export type ImageStatement = {
+    kind?: any;
+    score?: (number | null);
     /**
      * Textual description of the image.
      */

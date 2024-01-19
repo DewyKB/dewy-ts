@@ -1,21 +1,21 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ChunksService = void 0;
-class ChunksService {
+exports.StatementsService = void 0;
+class StatementsService {
     constructor(httpRequest) {
         this.httpRequest = httpRequest;
     }
     /**
      * Retrieve
-     * Retrieve chunks based on a given query.
+     * Retrieve statements based on a given query.
      * @param requestBody
-     * @returns app__chunks__models__RetrieveResponse Successful Response
+     * @returns RetrieveResponse Successful Response
      * @throws ApiError
      */
     retrieve(requestBody) {
         return this.httpRequest.request({
             method: 'POST',
-            url: '/api/chunks/retrieve',
+            url: '/api/statements/retrieve',
             body: requestBody,
             mediaType: 'application/json',
             errors: {
@@ -24,4 +24,4 @@ class ChunksService {
         });
     }
 }
-exports.ChunksService = ChunksService;
+exports.StatementsService = StatementsService;

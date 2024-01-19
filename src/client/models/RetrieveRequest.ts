@@ -2,13 +2,13 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { SynthesisMode } from './SynthesisMode';
 /**
  * A request for retrieving unstructured (document) results.
  */
 export type RetrieveRequest = {
     query: string;
     'n'?: number;
-    synthesis_mode?: SynthesisMode;
+    include_statements?: boolean;
+    include_summary?: boolean;
 };
 

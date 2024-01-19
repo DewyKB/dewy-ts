@@ -7,29 +7,26 @@ import moment from 'moment';
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const kb = new Dewy()
-
-
-// IMPORTANT! Set the runtime to edge
 export const runtime = 'edge'
+
+// Create a Dewy client
+const kb = new Dewy()
 
 export async function POST(req: Request) {
   try {
 
-    const { messages, user_id } = await req.json()
+    const { messages } = await req.json()
 
     // Get the last message
     const lastMessage = messages[messages.length - 1]
 
     // Query related information from the knowledge base
-    const context = await kb.chunks.retrieve(
-      {query: lastMessage.content, n: 10},
-      // query: lastMessage.content, 
-      // where: {owner: user_id, $created_at: {$gt: moment().subtract(1, 'days')}},
-      // limit: 10,
-      // order: 'cohere',
-    );
+    const context = await kb.statements.retrieve({
+      query: lastMessage.content, 
+      n: 10
+    });
 
+    // Augment the LLM prompt with the retrieved information
     const prompt = [
       {
         role: 'system',
@@ -39,7 +36,7 @@ export async function POST(req: Request) {
       AI is always friendly, kind, and inspiring, and he is eager to provide vivid and thoughtful responses to the user.
       AI has the sum of all knowledge in their brain, and is able to accurately answer nearly any question about any topic in conversation.
       START CONTEXT BLOCK
-      ${context.chunks.map((c: any) => c.content.text).join("\n")}
+      ${context.statements.map((c: any) => c.text).join("\n")}
       END OF CONTEXT BLOCK
       AI assistant will take into account any CONTEXT BLOCK that is provided in a conversation.
       If the context does not provide the answer to question, the AI assistant will say, "I'm sorry, but I don't know the answer to that question".
@@ -49,17 +46,19 @@ export async function POST(req: Request) {
       },
     ]
 
-    console.log(prompt)
     // Ask OpenAI for a streaming chat completion given the prompt
     const response = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       stream: true,
       messages: [...prompt, ...messages.filter((message: Message) => message.role === 'user')]
     })
+
     // Convert the response into a friendly text-stream
     const stream = OpenAIStream(response)
+
     // Respond with the stream
     return new StreamingTextResponse(stream)
+
   } catch (e) {
     throw (e)
   }
