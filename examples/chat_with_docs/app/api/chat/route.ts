@@ -21,7 +21,7 @@ export async function POST(req: Request) {
     const lastMessage = messages[messages.length - 1]
 
     // Query related information from the knowledge base
-    const context = await kb.statements.retrieve({
+    const context = await kb.default.retrieveChunks({
       query: lastMessage.content, 
       n: 10
     });
@@ -36,7 +36,7 @@ export async function POST(req: Request) {
       AI is always friendly, kind, and inspiring, and he is eager to provide vivid and thoughtful responses to the user.
       AI has the sum of all knowledge in their brain, and is able to accurately answer nearly any question about any topic in conversation.
       START CONTEXT BLOCK
-      ${context.statements.map((c: any) => c.text).join("\n")}
+      ${context.results.map((c: any) => c.chunk.text).join("\n")}
       END OF CONTEXT BLOCK
       AI assistant will take into account any CONTEXT BLOCK that is provided in a conversation.
       If the context does not provide the answer to question, the AI assistant will say, "I'm sorry, but I don't know the answer to that question".

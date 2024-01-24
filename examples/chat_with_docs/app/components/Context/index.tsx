@@ -76,7 +76,7 @@ export const Context: React.FC<ContextProps> = ({ className, context }) => {
             <Card key={key} card={card} />
           ))}
       </div>
-    { context ? <div><LazyReactJson src={context} theme="solarized" displayDataTypes={false} collapsed={3} enableClipboard={false}/></div> : null }
+    { context ? <div><LazyReactJson src={context} theme="solarized" displayDataTypes={false} collapsed={4} enableClipboard={false}/></div> : null }
     </div>
   );
 };
