@@ -2,20 +2,21 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type TextStatement = {
+export type TextChunk = {
+    id?: (number | null);
+    document_id: number;
     kind?: any;
-    score?: (number | null);
     raw: boolean;
     /**
-     * Text content of the node.
+     * Text content of the chunk.
      */
     text?: string;
     /**
-     * Start char index of the node.
+     * Start char index of the chunk.
      */
     start_char_idx?: (number | null);
     /**
-     * End char index of the node.
+     * End char index of the chunk.
      */
     end_char_idx?: (number | null);
 };

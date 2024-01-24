@@ -2,9 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Dewy = void 0;
 const FetchHttpRequest_1 = require("./core/FetchHttpRequest");
-const CollectionsService_1 = require("./services/CollectionsService");
-const DocumentsService_1 = require("./services/DocumentsService");
-const StatementsService_1 = require("./services/StatementsService");
+const DefaultService_1 = require("./services/DefaultService");
 class Dewy {
     constructor(config, HttpRequest = FetchHttpRequest_1.FetchHttpRequest) {
         var _a, _b, _c, _d;
@@ -19,9 +17,7 @@ class Dewy {
             HEADERS: config === null || config === void 0 ? void 0 : config.HEADERS,
             ENCODE_PATH: config === null || config === void 0 ? void 0 : config.ENCODE_PATH,
         });
-        this.collections = new CollectionsService_1.CollectionsService(this.request);
-        this.documents = new DocumentsService_1.DocumentsService(this.request);
-        this.statements = new StatementsService_1.StatementsService(this.request);
+        this.default = new DefaultService_1.DefaultService(this.request);
     }
 }
 exports.Dewy = Dewy;

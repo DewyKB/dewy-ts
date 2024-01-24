@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StatementsService = exports.DocumentsService = exports.CollectionsService = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.Dewy = void 0;
+exports.DefaultService = exports.OpenAPI = exports.CancelError = exports.CancelablePromise = exports.BaseHttpRequest = exports.ApiError = exports.Dewy = void 0;
 /* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -16,9 +16,5 @@ Object.defineProperty(exports, "CancelablePromise", { enumerable: true, get: fun
 Object.defineProperty(exports, "CancelError", { enumerable: true, get: function () { return CancelablePromise_1.CancelError; } });
 var OpenAPI_1 = require("./core/OpenAPI");
 Object.defineProperty(exports, "OpenAPI", { enumerable: true, get: function () { return OpenAPI_1.OpenAPI; } });
-var CollectionsService_1 = require("./services/CollectionsService");
-Object.defineProperty(exports, "CollectionsService", { enumerable: true, get: function () { return CollectionsService_1.CollectionsService; } });
-var DocumentsService_1 = require("./services/DocumentsService");
-Object.defineProperty(exports, "DocumentsService", { enumerable: true, get: function () { return DocumentsService_1.DocumentsService; } });
-var StatementsService_1 = require("./services/StatementsService");
-Object.defineProperty(exports, "StatementsService", { enumerable: true, get: function () { return StatementsService_1.StatementsService; } });
+var DefaultService_1 = require("./services/DefaultService");
+Object.defineProperty(exports, "DefaultService", { enumerable: true, get: function () { return DefaultService_1.DefaultService; } });

@@ -5,14 +5,10 @@
 import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { FetchHttpRequest } from './core/FetchHttpRequest';
-import { CollectionsService } from './services/CollectionsService';
-import { DocumentsService } from './services/DocumentsService';
-import { StatementsService } from './services/StatementsService';
+import { DefaultService } from './services/DefaultService';
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export class Dewy {
-    public readonly collections: CollectionsService;
-    public readonly documents: DocumentsService;
-    public readonly statements: StatementsService;
+    public readonly default: DefaultService;
     public readonly request: BaseHttpRequest;
     constructor(config?: Partial<OpenAPIConfig>, HttpRequest: HttpRequestConstructor = FetchHttpRequest) {
         this.request = new HttpRequest({
@@ -26,9 +22,7 @@ export class Dewy {
             HEADERS: config?.HEADERS,
             ENCODE_PATH: config?.ENCODE_PATH,
         });
-        this.collections = new CollectionsService(this.request);
-        this.documents = new DocumentsService(this.request);
-        this.statements = new StatementsService(this.request);
+        this.default = new DefaultService(this.request);
     }
 }
 

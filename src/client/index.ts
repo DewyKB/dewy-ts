@@ -11,13 +11,17 @@ export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 
 export type { Collection } from './models/Collection';
+export type { CollectionCreate } from './models/CollectionCreate';
+export type { CreateRequest } from './models/CreateRequest';
+export type { DistanceMetric } from './models/DistanceMetric';
+export type { Document } from './models/Document';
 export type { HTTPValidationError } from './models/HTTPValidationError';
-export type { ImageStatement } from './models/ImageStatement';
+export type { ImageChunk } from './models/ImageChunk';
+export type { IngestState } from './models/IngestState';
 export type { RetrieveRequest } from './models/RetrieveRequest';
 export type { RetrieveResponse } from './models/RetrieveResponse';
-export type { TextStatement } from './models/TextStatement';
+export type { RetrieveResult } from './models/RetrieveResult';
+export type { TextChunk } from './models/TextChunk';
 export type { ValidationError } from './models/ValidationError';
 
-export { CollectionsService } from './services/CollectionsService';
-export { DocumentsService } from './services/DocumentsService';
-export { StatementsService } from './services/StatementsService';
+export { DefaultService } from './services/DefaultService';

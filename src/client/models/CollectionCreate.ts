@@ -3,8 +3,10 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { DistanceMetric } from './DistanceMetric';
-export type Collection = {
-    id: number;
+/**
+ * The request to create a collection.
+ */
+export type CollectionCreate = {
     name: string;
     text_embedding_model: string;
     text_distance_metric?: DistanceMetric;

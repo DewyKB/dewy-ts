@@ -2,9 +2,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type ImageStatement = {
+export type ImageChunk = {
+    id?: (number | null);
+    document_id: number;
     kind?: any;
-    score?: (number | null);
     /**
      * Textual description of the image.
      */

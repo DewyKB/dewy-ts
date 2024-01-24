@@ -2,13 +2,12 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ImageStatement } from './ImageStatement';
-import type { TextStatement } from './TextStatement';
+import type { RetrieveResult } from './RetrieveResult';
 /**
  * The response from a chunk retrieval request.
  */
 export type RetrieveResponse = {
     summary: (string | null);
-    statements: Array<(TextStatement | ImageStatement)>;
+    results: Array<RetrieveResult>;
 };
 
