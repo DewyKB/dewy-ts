@@ -22,7 +22,7 @@ For more information about how to use Dewy, see the [README in the main repo](ht
     ```
 1. Run the Dewy service
     ```sh
-    docker run dewy
+    docker run dewykb/dewy
     ```
 1. Regenerate the client library
     ```sh
