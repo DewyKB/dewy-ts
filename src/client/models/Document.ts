@@ -9,6 +9,7 @@ import type { IngestState } from './IngestState';
 export type Document = {
     id?: (number | null);
     collection_id: number;
+    extracted_text?: (string | null);
     url: string;
     ingest_state?: (IngestState | null);
     ingest_error?: (string | null);

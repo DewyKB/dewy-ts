@@ -2,12 +2,14 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { RetrieveResult } from './RetrieveResult';
+import type { ImageResult } from './ImageResult';
+import type { TextResult } from './TextResult';
 /**
- * The response from a chunk retrieval request.
+ * The response from a retrieval request.
  */
 export type RetrieveResponse = {
     summary: (string | null);
-    results: Array<RetrieveResult>;
+    text_results: Array<TextResult>;
+    image_results: Array<ImageResult>;
 };
 

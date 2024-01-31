@@ -12,13 +12,11 @@ export async function POST(req: Request) {
     const lastMessage = messages[messages.length - 1]
 
     // Query related information from the knowledge base
-    const context = await kb.default.retrieveChunks(
-      {query: lastMessage.content, n: 10},
-      // query: lastMessage.content, 
-      // where: {owner: user_id, $created_at: {$gt: moment().subtract(1, 'days')}},
-      // limit: 10,
-      // order: 'cohere',
-    );
+    const context = await kb.default.retrieveChunks({
+      collection_id: 1,
+      query: lastMessage.content, 
+      n: 2
+    });
 
     return NextResponse.json({ context })
   } catch (e) {

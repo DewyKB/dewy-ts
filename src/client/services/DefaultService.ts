@@ -2,9 +2,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { AddDocumentRequest } from '../models/AddDocumentRequest';
 import type { Collection } from '../models/Collection';
 import type { CollectionCreate } from '../models/CollectionCreate';
-import type { CreateRequest } from '../models/CreateRequest';
 import type { Document } from '../models/Document';
 import type { ImageChunk } from '../models/ImageChunk';
 import type { RetrieveRequest } from '../models/RetrieveRequest';
@@ -75,7 +75,7 @@ export class DefaultService {
      * @throws ApiError
      */
     public addDocument(
-        requestBody: CreateRequest,
+        requestBody: AddDocumentRequest,
     ): CancelablePromise<Document> {
         return this.httpRequest.request({
             method: 'PUT',
@@ -133,12 +133,16 @@ export class DefaultService {
      * List chunks.
      * @param collectionId Limit to chunks associated with this collection
      * @param documentId Limit to chunks associated with this document
+     * @param page
+     * @param perPage
      * @returns any Successful Response
      * @throws ApiError
      */
     public listChunks(
         collectionId?: (number | null),
         documentId?: (number | null),
+        page?: (number | null),
+        perPage?: (number | null),
     ): CancelablePromise<Array<(TextChunk | ImageChunk)>> {
         return this.httpRequest.request({
             method: 'GET',
@@ -146,6 +150,8 @@ export class DefaultService {
             query: {
                 'collection_id': collectionId,
                 'document_id': documentId,
+                'page': page,
+                'perPage': perPage,
             },
             errors: {
                 422: `Validation Error`,

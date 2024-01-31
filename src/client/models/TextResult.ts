@@ -2,10 +2,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type TextChunk = {
-    id: number;
+export type TextResult = {
+    chunk_id: number;
     document_id: number;
-    kind?: any;
+    score: number;
     text: string;
     raw: boolean;
     /**

@@ -2,10 +2,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type ImageChunk = {
-    id: number;
+export type ImageResult = {
+    chunk_id: number;
     document_id: number;
-    kind?: any;
+    score: number;
     /**
      * Image of the node.
      */

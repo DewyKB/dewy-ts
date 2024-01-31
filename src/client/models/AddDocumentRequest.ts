@@ -2,11 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-/**
- * The name of the collection the document should be added to.
- */
-export type CreateRequest = {
-    collection_id: number;
+export type AddDocumentRequest = {
+    collection_id?: (number | null);
     url: string;
 };
 

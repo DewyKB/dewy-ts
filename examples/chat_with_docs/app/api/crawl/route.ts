@@ -10,7 +10,7 @@ export async function POST(req: Request) {
   const { url } = await req.json()
 
   try {
-    await kb.default.addDocument({collection: "main", url})
+    await kb.default.addDocument({collection_id: 1, url}) // Main collection
 
     return NextResponse.json({ success: true })
 

@@ -3,12 +3,14 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * A request for retrieving unstructured (document) results.
+ * A request for retrieving chunks from a collection.
  */
 export type RetrieveRequest = {
+    collection_id: number;
     query: string;
     'n'?: number;
-    include_statements?: boolean;
+    include_text_chunks?: boolean;
+    include_image_chunks?: boolean;
     include_summary?: boolean;
 };
 

@@ -4,7 +4,7 @@
   "description": "Typescript client for Dewy",
   "private": false,
   "scripts": {
-    "generate-client": "rm -rf src/client && openapi --name Dewy -c fetch --input http://localhost:8000/openapi.json --output ./src/client --useUnionTypes",
+    "generate-client": "rm -rf src/client && openapi --name Dewy -c fetch --input http://localhost/api/openapi.json --output ./src/client --useUnionTypes",
     "build": "tsc",
     "wtf": "openapi --help"
   },

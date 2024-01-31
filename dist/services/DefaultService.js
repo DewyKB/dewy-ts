@@ -114,16 +114,20 @@ class DefaultService {
      * List chunks.
      * @param collectionId Limit to chunks associated with this collection
      * @param documentId Limit to chunks associated with this document
+     * @param page
+     * @param perPage
      * @returns any Successful Response
      * @throws ApiError
      */
-    listChunks(collectionId, documentId) {
+    listChunks(collectionId, documentId, page, perPage) {
         return this.httpRequest.request({
             method: 'GET',
             url: '/api/chunks/',
             query: {
                 'collection_id': collectionId,
                 'document_id': documentId,
+                'page': page,
+                'perPage': perPage,
             },
             errors: {
                 422: `Validation Error`,
