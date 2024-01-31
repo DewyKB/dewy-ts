@@ -1,6 +1,6 @@
 {
   "name": "dewy_ts",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Typescript client for Dewy",
   "private": false,
   "scripts": {
