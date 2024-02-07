@@ -38,3 +38,5 @@ For more information about how to use Dewy, see the [README in the main repo](ht
     ```sh
     npm publish --access public
     ```
+
+<img referrerpolicy="no-referrer-when-downgrade" src="https://static.scarf.sh/a.png?x-pxid=bafcdbae-2a13-4b8b-a31b-bbe8d9eb1ca9" />
