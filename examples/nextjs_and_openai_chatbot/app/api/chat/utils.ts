@@ -6,7 +6,7 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY
 })
 const dewy = new Dewy({
-    endpoint: process.env.DEWY_ENDPOINT
+    BASE: process.env.DEWY_ENDPOINT
 })
 
 export async function generate(messages: Message[]) {

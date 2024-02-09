@@ -4,7 +4,7 @@ import { Dewy } from 'dewy_ts';
 export const runtime = 'edge'
 
 const dewy = new Dewy({
-    endpoint: process.env.DEWY_ENDPOINT
+    BASE: process.env.DEWY_ENDPOINT
 })
 
 export async function POST(req: Request) {
