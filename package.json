@@ -1,6 +1,6 @@
 {
   "name": "dewy_ts",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Typescript client for Dewy",
   "private": false,
   "scripts": {
@@ -19,6 +19,9 @@
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "directories": {
     "example": "examples"
   },
