@@ -1,6 +1,6 @@
 import OpenAI from 'openai';
 import { Message } from 'ai'
-import { Dewy } from 'dewy_ts'; 
+import { Dewy } from 'dewy-ts'; 
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY

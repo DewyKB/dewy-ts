@@ -10,5 +10,5 @@ npm install
 Run it
 
 ```sh
-npx ts-node index.ts
+npm exec dewy_qa
 ```

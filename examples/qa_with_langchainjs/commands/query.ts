@@ -3,10 +3,11 @@ import { PromptTemplate } from "@langchain/core/prompts";
 import { formatDocumentsAsString } from "langchain/util/document";
 import { RunnablePassthrough, RunnableSequence } from "@langchain/core/runnables";
 import { ChatOpenAI } from "@langchain/openai";
-import { Dewy } from 'dewy_ts'; 
+import { Dewy } from 'dewy-ts'; 
+import { DewyRetriever } from 'dewy_langchain'; 
 
 import { success, error } from '../utils/colors';
-import DewyRetriever from '../utils/DewyRetriever';
+// import DewyRetriever from '../utils/DewyRetriever';
 
 export async function query(question: string, options: { collection: string, dewy_endpoint: string, openai_api_key: string }): Promise<void> {
   console.log(success(`Querying ${options.collection} collection for: "${question}"`));

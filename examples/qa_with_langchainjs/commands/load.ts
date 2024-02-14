@@ -1,4 +1,4 @@
-import { Dewy } from 'dewy_ts'; 
+import { Dewy } from 'dewy-ts'; 
 
 import { success, error } from '../utils/colors';
 

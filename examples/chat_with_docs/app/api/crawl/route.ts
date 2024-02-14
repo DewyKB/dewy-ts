@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { Dewy } from 'dewy_ts';
+import { Dewy } from 'dewy-ts';
 
 export const runtime = 'edge'
 
