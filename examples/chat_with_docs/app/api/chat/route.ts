@@ -1,6 +1,6 @@
 import OpenAI from 'openai';
 import { Message, OpenAIStream, StreamingTextResponse } from 'ai'
-import { Dewy } from 'dewy_ts';
+import { Dewy } from 'dewy-ts';
 import moment from 'moment';
 
 // Create an OpenAI API client (that's edge friendly!)

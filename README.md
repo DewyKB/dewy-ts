@@ -4,11 +4,11 @@
 
 1. Install the library
 ```sh
-npm install dewy_ts
+npm install dewy-ts
 ```
 1. Connect to a Dewy instance
 ```typescript
-import { Dewy } from 'dewy_ts';
+import { Dewy } from 'dewy-ts';
 const dewy = new Dewy({endpoint: “localhost:3000”})
 ```
 
