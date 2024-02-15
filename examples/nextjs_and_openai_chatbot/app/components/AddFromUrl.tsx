@@ -1,6 +1,6 @@
-import React, { useState, FormEvent } from 'react';
+import React, { FormEvent } from 'react';
 
-export default function AddFromUrl(props) {
+export default function AddFromUrl(props: any) {
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
  

@@ -10,7 +10,7 @@ const openai = new OpenAI({
 export const runtime = 'edge'
 
 // Create a Dewy client
-const kb = new Dewy()
+const dewy = new Dewy()
 
 export async function POST(req: Request) {
   try {
@@ -22,8 +22,8 @@ export async function POST(req: Request) {
     console.log("handling message");
 
     // Query related information from the knowledge base
-    const context = await kb.default.retrieveChunks({
-      collection_id: 1,
+    const context = await dewy.kb.retrieveChunks({
+      collection: "main",
       query: lastMessage.content, 
       n: 2
     });

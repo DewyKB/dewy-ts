@@ -20,9 +20,7 @@ export async function query(question: string, options: { collection: string, dew
         BASE: options.dewy_endpoint
     })
 
-    // TODO: Resolve collection
-    const collection_id = 1;
-    const retriever = new DewyRetriever({ dewy, collection_id });
+    const retriever = new DewyRetriever({ dewy, collection: "main" });
 
     const prompt =
     PromptTemplate.fromTemplate(`Answer the question based only on the following context:

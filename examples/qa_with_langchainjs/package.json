@@ -9,8 +9,8 @@
     "axios": "^0.28.0",
     "chalk": "^4",
     "commander": "^12.0.0",
-    "dewy_langchain": "^0.0.1",
-    "dewy-ts": "file:../..",
+    "dewy-langchain": "^0.2",
+    "dewy-ts": "^0.2",
     "langchain": "0.1.16",
     "openai": "^4.26.1"
   },

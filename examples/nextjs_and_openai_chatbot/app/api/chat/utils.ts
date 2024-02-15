@@ -13,8 +13,8 @@ export async function generate(messages: Message[]) {
     const lastMessage = messages[messages.length - 1]
     const query = lastMessage.content
 
-    const context = await dewy.default.retrieveChunks({
-        collection_id: process.env.DEWY_COLLECTION_ID,
+    const context = await dewy.kb.retrieveChunks({
+        collection: process.env.DEWY_COLLECTION ?? "main",
         query: query, 
         n: 10,
     });
