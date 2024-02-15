@@ -4,14 +4,11 @@
 /* eslint-disable */
 import type { IngestState } from './IngestState';
 /**
- * Model for documents in Dewy.
+ * Model for document status.
  */
-export type Document = {
-    id?: (number | null);
-    collection: string;
-    extracted_text?: (string | null);
-    url?: (string | null);
-    ingest_state?: (IngestState | null);
+export type DocumentStatus = {
+    id: number;
+    ingest_state: IngestState;
     ingest_error?: (string | null);
 };
 

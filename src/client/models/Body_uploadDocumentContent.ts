@@ -2,8 +2,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type AddDocumentRequest = {
-    collection: string;
-    url?: (string | null);
+export type Body_uploadDocumentContent = {
+    /**
+     * The document content.
+     */
+    content: Blob;
 };
 

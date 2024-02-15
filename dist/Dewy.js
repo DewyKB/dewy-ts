@@ -2,13 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Dewy = void 0;
 const FetchHttpRequest_1 = require("./core/FetchHttpRequest");
-const DefaultService_1 = require("./services/DefaultService");
+const KbService_1 = require("./services/KbService");
 class Dewy {
     constructor(config, HttpRequest = FetchHttpRequest_1.FetchHttpRequest) {
         var _a, _b, _c, _d;
         this.request = new HttpRequest({
             BASE: (_a = config === null || config === void 0 ? void 0 : config.BASE) !== null && _a !== void 0 ? _a : 'http://localhost:8000',
-            VERSION: (_b = config === null || config === void 0 ? void 0 : config.VERSION) !== null && _b !== void 0 ? _b : '0.1.0',
+            VERSION: (_b = config === null || config === void 0 ? void 0 : config.VERSION) !== null && _b !== void 0 ? _b : '0.2.0',
             WITH_CREDENTIALS: (_c = config === null || config === void 0 ? void 0 : config.WITH_CREDENTIALS) !== null && _c !== void 0 ? _c : false,
             CREDENTIALS: (_d = config === null || config === void 0 ? void 0 : config.CREDENTIALS) !== null && _d !== void 0 ? _d : 'include',
             TOKEN: config === null || config === void 0 ? void 0 : config.TOKEN,
@@ -17,7 +17,7 @@ class Dewy {
             HEADERS: config === null || config === void 0 ? void 0 : config.HEADERS,
             ENCODE_PATH: config === null || config === void 0 ? void 0 : config.ENCODE_PATH,
         });
-        this.default = new DefaultService_1.DefaultService(this.request);
+        this.kb = new KbService_1.KbService(this.request);
     }
 }
 exports.Dewy = Dewy;
