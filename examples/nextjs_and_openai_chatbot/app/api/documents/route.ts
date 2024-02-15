@@ -9,10 +9,10 @@ const dewy = new Dewy({
 
 export async function POST(req: Request) {
   const formData = await req.formData();
-  const url = formData.get('url');
+  const url = formData.get('url') as string;
 
-  const result = await dewy.default.addDocument({
-    collection_id: process.env.DEWY_COLLECTION_ID,
+  const result = await dewy.kb.addDocument({
+    collection: process.env.DEWY_COLLECTION ?? "main",
     url,
   });
 

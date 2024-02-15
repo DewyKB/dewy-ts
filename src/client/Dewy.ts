@@ -5,15 +5,15 @@
 import type { BaseHttpRequest } from './core/BaseHttpRequest';
 import type { OpenAPIConfig } from './core/OpenAPI';
 import { FetchHttpRequest } from './core/FetchHttpRequest';
-import { DefaultService } from './services/DefaultService';
+import { KbService } from './services/KbService';
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export class Dewy {
-    public readonly default: DefaultService;
+    public readonly kb: KbService;
     public readonly request: BaseHttpRequest;
     constructor(config?: Partial<OpenAPIConfig>, HttpRequest: HttpRequestConstructor = FetchHttpRequest) {
         this.request = new HttpRequest({
             BASE: config?.BASE ?? 'http://localhost:8000',
-            VERSION: config?.VERSION ?? '0.1.0',
+            VERSION: config?.VERSION ?? '0.2.0',
             WITH_CREDENTIALS: config?.WITH_CREDENTIALS ?? false,
             CREDENTIALS: config?.CREDENTIALS ?? 'include',
             TOKEN: config?.TOKEN,
@@ -22,7 +22,7 @@ export class Dewy {
             HEADERS: config?.HEADERS,
             ENCODE_PATH: config?.ENCODE_PATH,
         });
-        this.default = new DefaultService(this.request);
+        this.kb = new KbService(this.request);
     }
 }
 

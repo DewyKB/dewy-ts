@@ -18,7 +18,7 @@
     "@microlink/react-json-view": "^1",
     "next": "14.0.4",
     "openai": "^4.23",
-    "dewy_ts": "file:../.."
+    "dewy-ts": "^0.2"
   },
   "devDependencies": {
     "typescript": "^5",

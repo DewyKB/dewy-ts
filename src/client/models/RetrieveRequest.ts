@@ -6,7 +6,7 @@
  * A request for retrieving chunks from a collection.
  */
 export type RetrieveRequest = {
-    collection_id: number;
+    collection: string;
     query: string;
     'n'?: number;
     include_text_chunks?: boolean;

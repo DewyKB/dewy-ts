@@ -4,7 +4,6 @@
 /* eslint-disable */
 import type { DistanceMetric } from './DistanceMetric';
 export type Collection = {
-    id: number;
     name: string;
     text_embedding_model: string;
     text_distance_metric?: DistanceMetric;

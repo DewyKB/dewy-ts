@@ -11,10 +11,12 @@ export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 
 export type { AddDocumentRequest } from './models/AddDocumentRequest';
+export type { Body_uploadDocumentContent } from './models/Body_uploadDocumentContent';
 export type { Collection } from './models/Collection';
 export type { CollectionCreate } from './models/CollectionCreate';
 export type { DistanceMetric } from './models/DistanceMetric';
 export type { Document } from './models/Document';
+export type { DocumentStatus } from './models/DocumentStatus';
 export type { HTTPValidationError } from './models/HTTPValidationError';
 export type { ImageChunk } from './models/ImageChunk';
 export type { ImageResult } from './models/ImageResult';
@@ -25,4 +27,4 @@ export type { TextChunk } from './models/TextChunk';
 export type { TextResult } from './models/TextResult';
 export type { ValidationError } from './models/ValidationError';
 
-export { DefaultService } from './services/DefaultService';
+export { KbService } from './services/KbService';

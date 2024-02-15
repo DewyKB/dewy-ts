@@ -10,10 +10,7 @@ export async function load(url: string, options: { collection: string, dewy_endp
         BASE: options.dewy_endpoint
     })
 
-    // TODO: Resolve collection
-    const collection_id = 1;
-
-    const result = await dewy.default.addDocument({ collection_id, url });
+    const result = await dewy.kb.addDocument({ collection: "main", url });
 
     console.log(success(`File loaded successfully`));
     console.log(JSON.stringify(result, null, 2));

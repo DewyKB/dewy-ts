@@ -4,13 +4,13 @@ import { Dewy } from 'dewy-ts';
 export const runtime = 'edge'
 
 // Create a Dewy client
-const kb = new Dewy()
+const dewy = new Dewy()
 
 export async function POST(req: Request) {
   const { url } = await req.json()
 
   try {
-    await kb.default.addDocument({collection_id: 1, url}) // Main collection
+    await dewy.kb.addDocument({collection: "main", url}) // Main collection
 
     return NextResponse.json({ success: true })
 
