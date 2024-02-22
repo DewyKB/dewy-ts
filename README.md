@@ -26,7 +26,8 @@ For more information about how to use Dewy, see the [README in the main repo](ht
     ```
 1. Regenerate the client library
     ```sh
-    npm run generate-client
+    rm -rf src/client
+    openapi --name Dewy -c fetch --input ../dewy/openapi.yaml --output ./src/client --useUnionTypes
     ```
 1. Recompile Typescript
     ```sh

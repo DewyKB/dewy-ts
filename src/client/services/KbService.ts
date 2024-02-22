@@ -70,6 +70,27 @@ export class KbService {
         });
     }
     /**
+     * Delete Collection
+     * Delete a collection and all documents contained within it.
+     * @param name The collection name.
+     * @returns Collection Successful Response
+     * @throws ApiError
+     */
+    public deleteCollection(
+        name: string,
+    ): CancelablePromise<Collection> {
+        return this.httpRequest.request({
+            method: 'DELETE',
+            url: '/api/collections/{name}',
+            path: {
+                'name': name,
+            },
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
+    /**
      * Add Document
      * Add a document from a URL.
      * @param requestBody
@@ -146,6 +167,27 @@ export class KbService {
     ): CancelablePromise<Document> {
         return this.httpRequest.request({
             method: 'GET',
+            url: '/api/documents/{id}',
+            path: {
+                'id': id,
+            },
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
+    /**
+     * Delete Document
+     * Delete a document.
+     * @param id The document ID.
+     * @returns Document Successful Response
+     * @throws ApiError
+     */
+    public deleteDocument(
+        id: number,
+    ): CancelablePromise<Document> {
+        return this.httpRequest.request({
+            method: 'DELETE',
             url: '/api/documents/{id}',
             path: {
                 'id': id,
