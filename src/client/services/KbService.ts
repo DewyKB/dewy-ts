@@ -92,7 +92,7 @@ export class KbService {
     }
     /**
      * Add Document
-     * Add a document from a URL.
+     * Add a document to a collection.
      * @param requestBody
      * @returns Document Successful Response
      * @throws ApiError
@@ -222,7 +222,7 @@ export class KbService {
      * List chunks.
      * @param collection Limit to chunks associated with this collection
      * @param documentId Limit to chunks associated with this document
-     * @param page
+     * @param page Page number to fetch. The first page of results is page 1
      * @param perPage
      * @returns any Successful Response
      * @throws ApiError
