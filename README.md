@@ -9,7 +9,7 @@ npm install dewy-ts
 1. Connect to a Dewy instance
 ```typescript
 import { Dewy } from 'dewy-ts';
-const dewy = new Dewy({endpoint: “localhost:3000”})
+const dewy = new Dewy({endpoint: “http://localhost:3000”})
 ```
 
 For more information about how to use Dewy, see the [README in the main repo](https://github.com/DewyKB/dewy).
